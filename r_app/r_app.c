@@ -20,7 +20,7 @@ int l_app(int argc, char **argv) { //Launches the application.
 
 
 
-// void main_window(Assessment *assessment, GtkApplication *app) {
+// void main_window(example *example, GtkApplication *app) {
 //     /* Opens the main window */
 //     
 //     GtkWidget *window; /* The handle to the window widget */
@@ -31,6 +31,6 @@ int l_app(int argc, char **argv) { //Launches the application.
 //     GdkPixbuf *icon_image = gdk_pixbuf_new_from_file(path_join(DATA_FOLDER, "icon.png"), 0); /* Get image */
 //     gtk_window_set_icon(GTK_WINDOW (window), icon_image); /* Set the icon */
 // 
-//     // Load the assessment to the window
-//     main_window_load(assessment, window, 0); /* Load the assessment into the window */        
+//     // Load the example to the window
+//     main_window_load(example, window, 0); /* Load the example into the window */        
 // }
