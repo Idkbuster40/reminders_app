@@ -6,17 +6,37 @@
 
 int l_app(int argc, char **argv) { //Launches the application.
 	GtkApplication *app;
-	app = gtk_application_new();
-	window = gtk_application_window_new (app);
-  	gtk_window_set_title (GTK_WINDOW (window), "Window");
-  	gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
-  	gtk_widget_show_all (window);
+	app = gtk_application_new(APP_ID, G_APPLICATION_HANDLES_OPEN); //Create a new app using GTK.
+	g_signal_connect(app, "activate", G_CALLBACK(g_module_start), NULL); //STUOOOOOBID. CREATE ZE APP.
+	g_signal_connect(app, "open", G_CALLBACK(g_module_open), NULL); //101010 - Handles opening.
+	int a_status = g_application_run(G_APPLICATION(app), argc, argv); //See if the app is running or not.
+/*	if (!a_status() = 0;) { //If not running
+		perror("Not running."); //Print this.
+		break; //Don't go further.
+	} */
+	g_object_unref(app); /* After done */ //Stole from friend's code.
+}
 
+int open_window() {
 	
 }
 
 
 // bum.farto.tortureapp.reminders
+
+
+
+// int launch_gui(int argc, char **argv) {
+//     /* Launches the GUI of the application */
+//     GtkApplication *app; /* Application object, used for creating windows */
+//     app = gtk_application_new(APP_ID, G_APPLICATION_HANDLES_OPEN); /* Create a new app */
+//     g_signal_connect(app, "activate", G_CALLBACK(app_start), NULL); /* Connect app to start callback  */
+//     g_signal_connect(app, "open", G_CALLBACK(handle_open), NULL); /* Here, handle the opening of files */
+//     int status = g_application_run(G_APPLICATION(app), argc, argv); /* Run application */
+//     g_object_unref(app); /* After done */
+// 
+//     return status;
+// }
 
 
 
