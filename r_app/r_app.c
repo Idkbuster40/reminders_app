@@ -1,32 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <time.h>
 #include <gtk/gtk.h>
 #include "reminders.h"
 
 void opn_window(GtkApplication *app, gpointer *dot_reminders) { //Opens the app and has a pointer for the .reminders file placed in ~
-	  GtkWidget *window;
+	  GtkWidget *w;
 
-  window = gtk_application_window_new (app);
-  gtk_window_set_title (GTK_WINDOW (window), "Reminders App");
-  gtk_window_set_default_size (GTK_WINDOW (window), 500, 300);
-  gtk_widget_show_all (window);
+  w = gtk_application_window_new (app);
+  gtk_window_set_title (GTK_WINDOW (w), "Reminders App");
+  gtk_window_set_default_size (GTK_WINDOW (w), 500, 300);
+  gtk_widget_show_all (w);
 }
 
 int l_app(int argc, char **argv) { //Launches the application. 
 	GtkApplication *app;
 	app = gtk_application_new(APP_ID, G_APPLICATION_HANDLES_OPEN); //Create a new app using GTK.
-	g_signal_connect(app, "activate", G_CALLBACK(opn_window), NULL); //STUOOOOOBID. CREATE ZE APP.
+	g_signal_connect(app, "activate", G_CALLBACK(opn_window), NULL); //This creates the app while opening the window.
 //TODO: Undo comment later	g_signal_connect(app, "open", G_CALLBACK(g_module_open), NULL); //101010 - Handles opening.
 	int a_status = g_application_run(G_APPLICATION(app), argc, argv); //See if the app is running or not.
-    if (a_status != 0) { //If not running
-		perror("Not running, please put issue on the github: https://github.com/Idkbuster40/reminders_app/issues"); //Print this.
+    if (a_status != true) { //If not running
+		perror("Not running, please put issue on the github repo: https://github.com/Idkbuster40/reminders_app/issues"); //Print this.
 		return 1; //Don't go further. Return 1 to show there is an error.
 	} 
 	g_object_unref(app); /* After done */ //Stole from friend's code.
 
 	return a_status;
 }
+
+/*----------------------------It will be better for your sanity if you ignore the stuff below.----------------------------*/
 
 // switch {
 // 	case;
