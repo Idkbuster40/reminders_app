@@ -4,6 +4,6 @@
 #include <gtk/gtk.h>
 #include "r_app/reminders.h"
 
-int main() {
-		
+int main(int argc, char **argv) { 
+	return l_app(argc, argv);		
 }
