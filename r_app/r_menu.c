@@ -5,6 +5,6 @@
 #include <gtk/gtk.h>
 #include "reminders.h"
 
-void r_inp_a() {
+void r_mainmenu() { 
 	
 }
