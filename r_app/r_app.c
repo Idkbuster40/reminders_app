@@ -15,7 +15,8 @@ void opn_window(GtkApplication *app, gpointer *dot_reminders) { //Opens the app 
 }
 
 int l_app(int argc, char **argv) { //Launches the application. 
-	GtkApplication *app;
+	void f_reminders(); //Check for file existence.
+	GtkApplication *app; //Gtkapp
 	app = gtk_application_new(APP_ID, G_APPLICATION_HANDLES_OPEN); //Create a new app using GTK.
 	g_signal_connect(app, "activate", G_CALLBACK(opn_window), NULL); //This creates the app while opening the window.
 //TODO: Undo comment later	g_signal_connect(app, "open", G_CALLBACK(g_module_open), NULL); //101010 - Handles opening.
@@ -25,7 +26,7 @@ int l_app(int argc, char **argv) { //Launches the application.
 		return 1; //Don't go further. Return 1 to show there is an error.
 	} 
 	g_object_unref(app); /* After done */ //Stole from friend's code.
-
+	
 	return a_status;
 }
 
