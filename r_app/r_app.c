@@ -6,7 +6,7 @@
 #include "reminders.h"
 
 void opn_window(GtkApplication *app, gpointer *dot_reminders) { //Opens the app and has a pointer for the .reminders file placed in ~
-	  GtkWidget *w; //w = window. 
+	  GtkWidget *w; //w = window 
 
   w = gtk_application_window_new (app); //Create a new window with the app
   gtk_window_set_title (GTK_WINDOW (w), "Reminders App"); //Set the title of the app to be "Reminders App" TODO: Give a better name for this app.
@@ -15,14 +15,14 @@ void opn_window(GtkApplication *app, gpointer *dot_reminders) { //Opens the app 
 }
 
 int l_app(int argc, char **argv) { //Launches the application. 
-	void f_reminders(); //Check for file existence.
+	f_reminders(); //Check for file existence.
 	GtkApplication *app; //Gtkapp
 	app = gtk_application_new(APP_ID, G_APPLICATION_HANDLES_OPEN); //Create a new app using GTK.
 	g_signal_connect(app, "activate", G_CALLBACK(opn_window), NULL); //This creates the app while opening the window.
 //TODO: Undo comment later	g_signal_connect(app, "open", G_CALLBACK(g_module_open), NULL); //101010 - Handles opening.
 	int a_status = g_application_run(G_APPLICATION(app), argc, argv); //See if the app is running or not.
     if (a_status != true) { //If not running
-		perror("Not running, please put issue on the github repo: https://github.com/Idkbuster40/reminders_app/issues"); //Print this.
+		perror("Not running properly, please put the issue on the github repo \nhttps://github.com/Idkbuster40/reminders_app/issues \n LOG:\n "); //Print this.
 		return 1; //Don't go further. Return 1 to show there is an error.
 	} 
 	g_object_unref(app); /* After done */ //Stole from friend's code.
