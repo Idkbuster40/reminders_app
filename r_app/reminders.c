@@ -25,12 +25,13 @@ void f_reminders() { //The .reminders file placed under /home/<insert_username>/
 	/* Structure:
 	* Date:Day:Time:"Reminder"
 	*/
-	FILE *reminder_f = fopen("/home/kaktus/.reminders", "r");
+	char *f_path = "/home/kaktus/.reminders"
+	FILE *reminder_f = fopen(*f_path, O_RDONLY);
 	if(!reminder_f) {
 		perror("No reminders file found, creating one.");
-	FILE *reminder_f = fopen("/home/kaktus/.reminders", "a");
+	FILE *reminder_f = fopen(*f_path, "a");
 //	FILE *reminder_f = fwrite()
-	fprintf(reminder_f, "This is something, please work.");
+	fwrite(*reminder_f, "This is somsething, please work.");
 	//FILE *reminder_f = fputc('\0', reminder_f);
 	FILE *reminder_f = fclose(reminder_f);
 		//printf(*reminder_f);
