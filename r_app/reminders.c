@@ -7,7 +7,7 @@
 
 
 typedef struct addreminder {
-	int date; //Out of 365 (or 366 every leap year), it takes a number, TODO: Add leap year detection.
+	int date; //This is the date the reminder will trigger on, if set to 0 it will not trigger.  
 	char r_day; //The first 7 days are for repeating, the 8th bit decides to repeat or not, like this -> MTWTFSSR = 10010111, where the "R" decides if it repeats or not if it is set. 
 	int time; //The time the reminder will trigger at. I want to also make it trigger repeatedly. 
 	char reminder; //The reminder text. Should be obvious. Limiting to 128c to prevent issues.

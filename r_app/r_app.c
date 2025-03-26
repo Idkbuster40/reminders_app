@@ -9,7 +9,7 @@ void opn_window(GtkApplication *app, gpointer *dot_reminders) { //Opens the app 
 	  GtkWidget *w; //w = window 
 
   w = gtk_application_window_new (app); //Create a new window with the app
-  gtk_window_set_title (GTK_WINDOW (w), "Reminders App"); //Set the title of the app to be "Reminders App" TODO: Give a better name for this app.
+  gtk_window_set_title (GTK_WINDOW (w), "Forget Me Not"); //Set the title of the app to be "Reminders App" TODO: Give a better name for this app.
   gtk_window_set_default_size (GTK_WINDOW (w), 500, 300); //Make it a small window.
   gtk_widget_show_all (w); //Show all in the window.
 }
